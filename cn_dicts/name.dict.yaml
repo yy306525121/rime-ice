@@ -1,0 +1,43 @@
+# Rime dictionary
+# encoding: utf-8
+#
+#
+# https://github.com/iDvel/rime-ice
+# ------- 人名 -------
+#
+#
+---
+name: name
+version: "2022-11-30"
+sort: by_weight
+...
+
+常润生	chang run sheng
+陈海岗	chen hai gang
+陈进	chen jin
+杜军涛	du jun tao
+高飞	gao fei
+狗欢	gou huan
+钧钧	jun jun
+军涛	jun tao
+康京宇	kang jing yu
+李静	li jing
+李晓浩	li xiao hao
+闵华勇	min hua yong
+谯前川	qiao qian chuan
+任德君	ren de jun
+荣少林	rong shao lin
+沈浓浓	shen nong nong
+王思怡	wang si yi
+文良	wen liang
+咸鱼哥	xian yu ge
+晓浩	xiao hao
+闫鑫	yan xin
+闫总	yan zong
+杨苡珩	yang yi heng
+杨忠洋	yang zhong yang
+姚健	yao jian
+张银丽	zhang yin li
+张哲	zhang zhe
+朱丽茹	zhu li ru
+邹仁昊	zou ren hao
