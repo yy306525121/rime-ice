@@ -6,9 +6,7 @@
 
 ## 基本套路
 
-- 简体全拼
-    - 鼠须管 Squirrel 0.15.2
-    - 小狼毫 Weasel 0.14.3
+- 简体 | 全拼 | 双拼
 - 主要功能
     -   [melt_eng](https://github.com/tumuyan/rime-melt) 英文输入
     -   [两分输入法](http://cheonhyeong.com/Simplified/download.html) 拼字
@@ -17,6 +15,7 @@
     -   自整理的 Emoji
     -   [以词定字](https://github.com/BlindingDark/rime-lua-select-character)
     -   [长词优先](https://github.com/tumuyan/rime-melt/blob/master/lua/melt.lua)
+    -   [Unicode](https://github.com/shewer/librime-lua-script/blob/main/lua/component/unicode.lua)
     -   所有标点符号直接上屏，「/」模式改为「v」模式，「/」直接上屏
     -   增加了许多拼音纠错
 - 简体字表、词库
@@ -29,15 +28,16 @@
     -   [《新华成语大词典》](https://forum.freemdict.com/t/topic/11407)
     -   [搜狗网络流行新词](https://pinyin.sogou.com/dict/detail/index/4)
     -   [腾讯词向量](https://ai.tencent.com/ailab/nlp/en/download.html)
-- 词库更新
-    - 校对了大量异形词、错别字、错误注音
-    - 长期对词库进行更新修订
+- 词库修订
+    - 校对大量异形词、错别字、错误注音
+
+详细介绍：[Rime 配置：雾凇拼音](https://dvel.me/posts/rime-ice/)
 
 <br>
 
 ## 长期维护词库
 
-精心调教了很多。既然找不到一份比较满意的简体词库，主流输入法又不公开自己的系统词库，干脆自己搞一个。
+因为没有找到一份比较好的词库，干脆自己维护一个。综合了几个不错的词库，精心调教了很多。
 
 主要维护的词库：
 
@@ -46,6 +46,7 @@
 - `sogou` 搜狗流行词。
 - `ext` 扩展词库，小词库。
 - `tencent` 扩展词库，大词库。
+- Emoji
 
 维护内容主要是异形词、错别字的校对，错误注音的修正，缺失的常用词汇的增添，词频的调整。
 
@@ -57,84 +58,77 @@
 
 备份后删除配置目录下原有的配置文件，再将仓库所有文件复制粘贴进去就好了。
 
-配置目录：
+更新词库：词库每个月都会更新几次，更新时只需要将下面 3 个文件夹覆盖过去并重新部署即可。
 
-- 鼠须管： `~/Library/Rime`
-- 小狼毫： `%APPDATA%\Rime`
+- `cn_dicts` 拼音相关词库
+    - 里面的文件在 `rime_ice.dict.yaml` 中引用
+
+- `en_dicts` 英文相关词库
+    - 里面的文件在 `melt_eng.dict.yaml` 中引用
+
+- `opencc` Emoji
+
+*更新词库后报错，可能是增删改了词库文件，需要检查 `*.dict.yaml` 与词库文件是否对应上。
 
 <br>
 
-## 极简新手教程
+## 常见问题
 
-### 格式
+##### 配置出错
 
-在修改配置或词库前，请注意 Rime 对格式的要求：UTF-8 编码，严格遵循缩进，在配置文件中以空格缩进。
+有时候 Rime 不会报错，而是自动加载默认配置。
 
-但是词条之间是用 Tab 分割的：
+如果发现方案选单里是「朙月拼音、仓颉」之类的，那可能是配置有问题，Rime 自动加载了默认配置。
 
-```
-拼音	pin yin 1234
-拼音<Tab>pin<Space>yin<Tab>1234
-```
+检查一下修改过的地方，比如拼写、缩进是否正确，是否用了 Tab 缩进，或被编辑器自动转为了 Tab ……
 
-### 主要的配置文件
+##### 快捷键
 
-- `default.custom.yaml` 一些全局设置。
-- `rime_ice.schema.yaml` 方案配置，大部分功能的引用和实现。
+呼出方案选单默认为 Control+Shift+grave（grave 是 `` ` `` 反引号，Tab 上面那个）。
 
-部署成功后，建议查阅一遍，按照自己的偏好进行修改，基本都写了注释。
+小狼毫似乎不支持 Control+Shift 开头的快捷键，可在 `default.custom.yaml` 中修改。
 
-### 常用修改示例
+##### Lua 脚本
 
-##### 呼出方案选单
+Lua 中可配置的选项都提取出来了，不需要修改 Lua 文件。
 
-`default.custom.yaml` 中修改，默认为 Control+Shift+grave（grave 是 `` ` `` 反引号，Tab 上面那个）。
+以词定字的快捷键在 `default.custom.yaml` 中设定，限制码长、长词优先、日期时间这些选项在方案文件中设定。
 
 ##### Shift 切换中英
 
-`default.custom.yaml` 中修改 `Shift_L` 对应的选项，将 `noop` 修改为 `commit_code` 、`commit_text` 或 `clear`。
+`default.custom.yaml` 中修改 Shift 对应的选项，将 `noop` 修改为 `commit_code` 、`commit_text` 或 `clear`。
 
 ##### 逗号句号翻页
 
 1. 在 `default.custom.yaml` 中解开句号逗号翻页的注释。
 2. 在 `rime_ice.schema.yaml` 中注释掉 `url_2`。（因为这个选项会覆盖掉句号的行为）
 
-##### 引入其他词库
-
-在 `rime_ice.dict.yaml` 中添加，`- cn_dicts/xxx` 即表示援引 `cn_dicts/` 目录下的 `xxx.dict.yaml` 文件。
-
 ##### 自定义短语
 
-在 `custom_phrase.txt` 中添加，建议清空，换成你自己的习惯。
+在 `custom_phrase.txt` 中添加，建议清空，换成自己的习惯。
 
-##### 标点符号映射
-
-在 `symbols_custom.yaml` 中修改，单个映射即直接上屏，多个映射可以进行复选。
-
-##### 模糊音
-
-在 `rime_ice.schema.yaml` 中 `algebra` 下面解开相关注释，可单向或成对选择。
-
-##### 日期时间等关键字
-
-在 `rime.lua` 中，将 `if (input == "rq") then` 中的 `rq` 改成别的。
-
----
-
-详细介绍：[雾凇拼音，我的 Rime 配置及新手指引](https://dvel.me/posts/my-rime/)
+双拼需要额外手动创建 `custom_phrase_double.txt`。
 
 <br>
 
-## 感谢
+## 感谢 ❤️
 
 上述用到的词库，及 [@Huandeep](https://github.com/Huandeep) 整理的多个词库。
 
 上述提到的方案及功能参考。
 
-搜狗转 Rime 词库：[lewangdev/scel2txt](https://github.com/lewangdev/scel2txt)
+搜狗转 Rime：[lewangdev/scel2txt](https://github.com/lewangdev/scel2txt)
 
 大量参考[校对网](http://www.jiaodui.com/bbs/)。
 
 Thanks to JetBrains for the OSS development license.
 
 [![JetBrains](https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.svg)](https://jb.gg/OpenSourceSupport)
+
+<br>
+
+## 赞助 ☕
+
+如果觉得项目不错，可以请 Dvel 吃个煎饼馃子。
+
+<img src="./others/sponsor.webp" alt="请 Dvel 吃个煎饼馃子" width=600 />
