@@ -13,4 +13,6 @@ import_tables:
   - cn_dicts/others  # 一些杂项
   - cn_dicts/name    # 人名
   - cn_dicts/game    # 游戏
+  - cn_dicts/enci    # 电商
+  - cn_dicts/it    # it词汇
 ...
