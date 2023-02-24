@@ -133,7 +133,7 @@ grammar:
 translator:
   dictionary: rime_ice          # 挂载词库 rime_ice.dict.yaml
   contextual_suggestions: true  # 开启八股文
-  preedit_format:               # preedit_format 影响到输入框的显示和“Shift+回车”上屏的字符
+  preedit_format: # preedit_format 影响到输入框的显示和“Shift+回车”上屏的字符
     - xform/([jqxy])v/$1u/      # 显示为 ju qu xu yu
     # - xform/([nl])v/$1ü/      # 显示为 nü lü
     # - xform/([nl])ue/$1üe/    # 显示为 nüe lüe
@@ -193,8 +193,8 @@ speller:
   algebra:
     ### 模糊音
     # 声母
-    # - derive/^([zcs])h/$1/          # z c s → zh ch sh
-    # - derive/^([zcs])([^h])/$1h$2/  # zh ch sh → z c s
+    - derive/^([zcs])h/$1/          # z c s → zh ch sh
+    - derive/^([zcs])([^h])/$1h$2/  # zh ch sh → z c s
     # - derive/^l/n/  # n → l
     # - derive/^n/l/  # l → n
     # - derive/^f/h/  # …………
