@@ -27,19 +27,17 @@ const (
 	HanziPath   = "/Users/dvel/Library/Rime/cn_dicts/8105.dict.yaml"
 	BasePath    = "/Users/dvel/Library/Rime/cn_dicts/base.dict.yaml"
 	SogouPath   = "/Users/dvel/Library/Rime/cn_dicts/sogou.dict.yaml"
-	MoegirlPath = "/Users/dvel/Library/Rime/cn_dicts/moegirl.dict.yaml"
 	ExtPath     = "/Users/dvel/Library/Rime/cn_dicts/ext.dict.yaml"
 	TencentPath = "/Users/dvel/Library/Rime/cn_dicts/tencent.dict.yaml"
 	EmojiPath   = "/Users/dvel/Library/Rime/opencc/emoji-map.txt"
 	EnPath      = "/Users/dvel/Library/Rime/en_dicts/en.dict.yaml"
 
-	DefaultWeight = 100 // sogou、moegirl、ext、tencet 词库中默认的权重数值
+	DefaultWeight = 100 // sogou、ext、tencet 词库中默认的权重数值
 )
 
 var (
 	BaseSet    mapset.Set[string]
 	SogouSet   mapset.Set[string]
-	MoegirlSet mapset.Set[string]
 	ExtSet     mapset.Set[string]
 	TencentSet mapset.Set[string]
 )
@@ -47,7 +45,6 @@ var (
 func init() {
 	BaseSet = readToSet(BasePath)
 	SogouSet = readToSet(SogouPath)
-	MoegirlSet = readToSet(MoegirlPath)
 	ExtSet = readToSet(ExtPath)
 	TencentSet = readToSet(TencentPath)
 }
@@ -118,14 +115,12 @@ func getSha1(dictPath string) string {
 // updateVersion 排序后，如果文件有改动，则修改 version 日期
 func updateVersion(dictPath string, oldSha1 string) {
 	// 判断文件是否有改变
-	if dictPath != MoegirlPath {
-		newSha1 := getSha1(dictPath)
-		if newSha1 == oldSha1 {
-			fmt.Println()
-			return
-		}
-		fmt.Println(" ...sorted")
+	newSha1 := getSha1(dictPath)
+	if newSha1 == oldSha1 {
+		fmt.Println()
+		return
 	}
+	fmt.Println(" ...sorted")
 
 	// 打开文件
 	file, err := os.OpenFile(dictPath, os.O_RDWR, 0644)

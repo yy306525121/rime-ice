@@ -12,6 +12,7 @@ import (
 // 临时用的或一次性的方法集
 
 func Temp() {
+	defer os.Exit(1)
 }
 
 func dictsDifference(dict1, dict2 string) {

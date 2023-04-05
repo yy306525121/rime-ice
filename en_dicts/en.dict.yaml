@@ -16,7 +16,7 @@
 # 转化应当大写的单词
 ---
 name: en
-version: "2023-02-20"
+version: "2023-03-30"
 sort: by_weight
 ...
 # +_+
@@ -2803,7 +2803,7 @@ dear	dear
 death	death
 deaths	deaths
 debate	debate
-debian	debian
+Debian	Debian
 Deborah	Deborah
 debt	debt
 debug	debug
@@ -4232,7 +4232,7 @@ Finnish	Finnish
 fioricet	fioricet
 fire	fire
 fired	fired
-firefox	firefox
+Firefox	Firefox
 fireman	fireman
 fireplace	fireplace
 fires	fires
@@ -4462,7 +4462,7 @@ fraud	fraud
 Fred	Fred
 Frederick	Frederick
 free	free
-freebsd	freebsd
+FreeBSD	FreeBSD
 freedom	freedom
 freelance	freelance
 freely	freely
@@ -5805,7 +5805,7 @@ involvement	involvement
 involves	involves
 involving	involving
 inward	inward
-# io	io
+IO	IO
 ion	ion
 Iowa	Iowa
 IP	IP
@@ -6147,7 +6147,7 @@ lambda	lambda
 lame	lame
 lamp	lamp
 lamps	lamps
-lan	lan
+LAN	LAN
 lancaster	lancaster
 lance	lance
 land	land
@@ -6164,7 +6164,7 @@ language	language
 languages	languages
 lanka	lanka
 lantern	lantern
-laos	laos
+Laos	Laos
 lap	lap
 lapse	lapse
 laptop	laptop
@@ -7142,7 +7142,7 @@ motive	motive
 motor	motor
 motorcycle	motorcycle
 motorcycles	motorcycles
-motorola	motorola
+Motorola	Motorola
 motors	motors
 motorway	motorway
 mould	mould
@@ -7361,7 +7361,7 @@ next	next
 nextel	nextel
 # nfl	nfl
 # ng	ng
-nginx	nginx
+Nginx	Nginx
 # nh	nh
 # nhl	nhl
 # nhs	nhs
@@ -7980,7 +7980,7 @@ payday	payday
 paying	paying
 payment	payment
 payments	payments
-paypal	paypal
+PayPal	PayPal
 payroll	payroll
 pays	pays
 # pb	pb
@@ -8155,9 +8155,9 @@ photographic	photographic
 photographs	photographs
 photography	photography
 photos	photos
-photoshop	photoshop
+Photoshop	Photoshop
 PHP	PHP
-phpbb	phpbb
+phpBB	phpBB
 phrase	phrase
 phrases	phrases
 # phys	phys
