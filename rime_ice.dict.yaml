@@ -18,6 +18,7 @@ import_tables:
   - cn_dicts/game    # 游戏
   - cn_dicts/enci    # 电商
   - cn_dicts/it    # it词汇
+  - cn_dicts/yangzy
 ...
 
 # 按需启用：

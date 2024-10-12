@@ -1,0 +1,16 @@
+# Rime dictionary
+# encoding: utf-8
+#
+#
+# https://github.com/iDvel/rime-ice
+# ------- 人名 -------
+#
+#
+---
+name: yangzy
+version: "2022-11-30"
+sort: by_weight
+...
+
+
+松山棉店	song shan mian dian
