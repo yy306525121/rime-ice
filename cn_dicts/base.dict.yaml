@@ -18120,10 +18120,7 @@ sort: by_weight
 胞质杂种	bao zhi za zhong	1
 保值增值	bao zhi zeng zhi	21310
 保重	bao zhong	16660
-包中	bao zhong	5000
-宝重	bao zhong	1
-胞中	bao zhong	1
-# 保种	bao zhong	0
+保种	bao zhong	0
 # 鲍忠	bao zhong	0
 保重点	bao zhong dian	1055
 报重量	bao zhong liang	65
@@ -542716,7 +542713,6 @@ sort: by_weight
 走野	zou ye	33
 走夜路	zou ye lu	3090
 奏议	zou yi	2480
-奏一	zou yi	111
 # 邹益	zou yi	0
 走一遍	zou yi bian	1190
 走一步	zou yi bu	9955
